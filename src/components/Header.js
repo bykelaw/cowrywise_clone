@@ -1,85 +1,19 @@
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
+import { Link} from "react-router-dom"
+import solutions from '../Solutions'
+import resources from '../Resources'
 import {
-  BookmarkAltIcon,
-  CalendarIcon,
-  ChartBarIcon,
-  CursorClickIcon,
   MenuIcon,
   PhoneIcon,
   PlayIcon,
-  RefreshIcon,
-  ShieldCheckIcon,
-  SupportIcon,
-  ViewGridIcon,
   XIcon,
 } from '@heroicons/react/outline'
-import { ChevronDownIcon } from '@heroicons/react/solid'
-
-const solutions = [
-  {
-    name: 'Plan',
-    description: 'Get a better understanding of where your traffic is coming from.',
-    href: '#',
-    icon: ChartBarIcon,
-  },
-  {
-    name: 'Save',
-    description: 'Speak directly to your customers in a more meaningful way.',
-    href: '#',
-    icon: CursorClickIcon,
-  },
-  { name: 'Invest', description: "Your customers' data will be safe and secure.", href: '#', icon: ShieldCheckIcon },
-  {
-    name: 'Sign Up For Free',
-    description: "Connect with third-party tools that you're already using.",
-    href: '#',
-    icon: ViewGridIcon,
-  },
-  {
-    name: 'Log In',
-    description: 'Build strategic funnels that will drive your customers to convert',
-    href: '#',
-    icon: RefreshIcon,
-  },
-  {
-    name: 'Why Cowrywise?',
-    description: 'Build strategic funnels that will drive your customers to convert',
-    href: '#',
-    icon: RefreshIcon,
-  },
-  {
-    name: 'Customer Stories',
-    description: 'Build strategic funnels that will drive your customers to convert',
-    href: '#',
-    icon: RefreshIcon,
-  },
-]
 const callsToAction = [
   { name: 'Watch Demo', href: '#', icon: PlayIcon },
   { name: 'Contact Sales', href: '#', icon: PhoneIcon },
 ]
-const resources = [
-  {
-    name: 'Help Center',
-    description: 'Get all of your questions answered in our forums or contact support.',
-    href: '#',
-    icon: SupportIcon,
-  },
-  {
-    name: 'Guides',
-    description: 'Learn how to maximize our platform to get the most out of it.',
-    href: '#',
-    icon: BookmarkAltIcon,
-  },
-  {
-    name: 'Events',
-    description: 'See what meet-ups and other events we might be planning near you.',
-    href: '#',
-    icon: CalendarIcon,
-  },
-  { name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#', icon: ShieldCheckIcon },
-]
+
 const recentPosts = [
   { id: 1, name: 'Boost your conversion rate', href: '#' },
   { id: 2, name: 'How to use search engine optimization to drive traffic to your site', href: '#' },
@@ -96,14 +30,14 @@ export default function Example() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center  py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
-            <a href="#">
-              <span className="sr-only">Workflow</span>
+            <Link to="/">
+              <span style={{color: 'blue'}}className="sr-only">Workflow</span>
               <img
                 className="h-8 w-auto sm:h-10"
                 src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                 alt=""
               />
-            </a>
+            </Link>
           </div>
           <div className="-mr-2 -my-2 md:hidden">
             <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -112,24 +46,24 @@ export default function Example() {
             </Popover.Button>
           </div>
           <Popover.Group as="nav" className="hidden md:flex space-x-10">
-
-            <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">Plan</a>
-            <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">Save</a>
-            <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">Invest</a>
-            <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">FAQ</a>
-            <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">Learn</a>
-
-         
+             
+            <Link className="text-base font-medium text-gray-500 hover:text-gray-900" to="/plan">Plan</Link>
+            <Link className="text-base font-medium text-gray-500 hover:text-gray-900" to="/save">Save</Link>
+            <Link className="text-base font-medium text-gray-500 hover:text-gray-900" to="/invest">Invest</Link>
+            <Link className="text-base font-medium text-gray-500 hover:text-gray-900" to="/faq">FAQ</Link>
+            <Link className="text-base font-medium text-gray-500 hover:text-gray-900" to="/learn">Learn</Link>
+      
           </Popover.Group>
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <a href="#" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+            
+            <Link className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900" to="/signin">
               Sign in
-            </a>
-            <a href="#"
-              className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-            >
+            </Link>
+            <Link className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700" 
+            to="/signup">
               Sign up
-            </a>
+            </Link>
+            
           </div>
         </div>
       </div>
