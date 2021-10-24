@@ -3,7 +3,7 @@ const Signin = () => {
         <div>
             <div className="flex items-center justify-center min-h-screen bg-gray-100">
                 <div className="w-1/3 px-8 py-6 text-left bg-white shadow-lg">
-                    <h3 className="text-2xl font-bold text-center">Create an account</h3>
+                    <h3 className="text-2xl font-bold text-center">Log in your account</h3>
                     <form>
                         <div className="mt-4">
                             <label for="email">Email</label>
