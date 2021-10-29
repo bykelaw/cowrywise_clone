@@ -15,16 +15,34 @@ const Signup = () => {
             name: Joi.string()
                 .alphanum()
                 .min(3)
-                .required(),
+                .required()
+                .messages({
+                    'string.base': `Name is a required field`,
+                    'string.empty': `Name cannot be an empty field`,
+                    'string.min': `Name should have a minimum length of {#limit}`,
+                    'any.required': `Name is a required field`
+                  }),
     
             email: Joi.string()
                 .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
-                .required(),
+                .required()
+                .messages({
+                    'string.base': `Email is a required field`,
+                    'string.empty': `Email cannot be an empty field`,
+                    'string.email': `Email must be valid`,
+                    'any.required': `Email is a required field`
+                }),
             
             password: Joi.string()
                 .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
                 .min(6)
-                .required(),
+                .required()
+                .messages({
+                    'string.base': `Password is a required field`,
+                    'string.empty': `Password cannot be an empty field`,
+                    'string.min': `Password should have a minimum length of {#limit}`,
+                    'any.required': `Password is a required field`
+                  }),
             
         }),
         explicitCheck: {
@@ -78,6 +96,7 @@ const Signup = () => {
                             <input type="text" placeholder="Name"
                             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                             onChange={updateName}
+                            onBlur={() => setExplicitField("name", true)}
                             />
                             <span style={{color:"red"}}>{state.$errors.name.map((data) => data.$message).join(",")}</span>
                         </div>
@@ -86,6 +105,7 @@ const Signup = () => {
                             <input type="text" placeholder="Email"
                             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                             onChange={updateEmail}
+                            onBlur={() => setExplicitField("email", true)}
                             />
                             <span style={{color:"red"}}>{state.$errors.email.map((data) => data.$message).join(",")}</span>
                         </div>
@@ -94,6 +114,7 @@ const Signup = () => {
                             <input type="text" placeholder="Password"
                             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                             onChange={updatePassword}
+                            onBlur={() => setExplicitField("password", true)}
                             />
                             <span style={{color:"red"}}>{state.$errors.password.map((data) => data.$message).join(",")}</span>
                         </div>
