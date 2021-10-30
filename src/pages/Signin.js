@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import Joi from 'joi'
+import FormGroup from '../components/FormGroup/index'
 const Signin = () => {
     
     const [email, setEmail] = useState('');
@@ -28,6 +29,7 @@ const Signin = () => {
                             className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-blue-600"
                             value={email} onChange={(e) => setEmail(e.target.value)}
                             />
+                            {/* <FormGroup fieldStyle='shortText' name='email' placeholder='Email'/> */}
                         </div>
                         <div className="mt-4">
                             <label for="password">Password</label>
